@@ -15,15 +15,21 @@ public class WelcomeUser {
             String queryysername = "Select * from users WHERE Username = ?";
             PreparedStatement psUsername = connection.prepareStatement(queryysername);
             psUsername.setString(1,s1);
+            psUsername.executeQuery();
             ResultSet rsUsername = psUsername.executeQuery();
-            String fullname = rsUsername.getString("FullName");
-            WelcomeLabel1.setText("Hello "+fullname+" Welcome to Lockdown Traveller");
+//            String fullname = rs1.getString("FullName");
+//            ;
+            WelcomeLabel1.setText("Welcome");
+
+
             while (rsUsername.next()){
+                WelcomeLabel1.setText("Hello "+rsUsername.getString("FullName")+" Welcome to Lockdown Traveller");
                 System.out.println("Usename :"+rsUsername.getString("Username")+"\n");
                 System.out.println("Name :"+rsUsername.getString("FullName")+"\n");
                 System.out.println("Email :"+rsUsername.getString("Email")+"\n");
                 System.out.println("Phone :"+rsUsername.getString("Phone")+"\n");
             }
+
 
         }
         catch (Exception e1){
