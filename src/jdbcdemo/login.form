@@ -49,15 +49,6 @@
           <model/>
         </properties>
       </component>
-      <component id="fcb60" class="javax.swing.JButton" binding="logInButton" default-binding="true">
-        <constraints>
-          <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <hideActionText value="false"/>
-          <text value="LogIn"/>
-        </properties>
-      </component>
       <component id="2448" class="javax.swing.JLabel">
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="4" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
@@ -83,6 +74,15 @@
         <properties>
           <background color="-1842205"/>
           <text value="SignUp"/>
+        </properties>
+      </component>
+      <component id="fcb60" class="javax.swing.JButton" binding="logInButton" default-binding="true">
+        <constraints>
+          <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <hideActionText value="false"/>
+          <text value="LogIn"/>
         </properties>
       </component>
     </children>

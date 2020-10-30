@@ -117,7 +117,7 @@ public class signup {
                                                 if (passwordField1.getText().toString().equals(passwordField2.getText().toString())) {
                                                     preparedStatement.setString(5, passwordField1.getText());
                                                     preparedStatement.executeUpdate();
-                                                    jdbcfirst.frame.setContentPane(new WelcomeUser(usernameField.getText()).panel1);
+                                                    jdbcfirst.frame.setContentPane(new WelcomeUser(usernameField.getText(),"users").panel1);
                                                     jdbcfirst.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //                jdbcfirst.frame.pack();
 
@@ -185,3 +185,5 @@ public class signup {
         });
     }
 }
+
+/* uhgjkhjweklqnb*/

@@ -76,7 +76,7 @@ public class login extends JFrame{
                             {
 
                                 if (passwordField1.getText().equals(rsUsername.getString("Password"))){
-                                    jdbcfirst.frame.setContentPane(new WelcomeUser(textField1.getText()).panel1);
+                                    jdbcfirst.frame.setContentPane(new WelcomeUser(textField1.getText(),"users").panel1);
                                     jdbcfirst.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //
 
@@ -111,17 +111,32 @@ public class login extends JFrame{
                             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/trains", "root", "");
                             String queryysername = "Select * from admin WHERE Username = ?";
                             PreparedStatement psUsername = connection.prepareStatement(queryysername);
-                            psUsername.setString(1,username);
+                            psUsername.setString(1,textField1.getText());
                             ResultSet rsUsername = psUsername.executeQuery();
                             if (rsUsername.next())
                             {
-                                System.out.println(rsUsername.getString("Email"));
-                                System.out.println(rsUsername.getString("Phone"));
+
+                                if (passwordField1.getText().equals(rsUsername.getString("Password"))){
+                                    jdbcfirst.frame.setContentPane(new WelcomeUser(textField1.getText(),"admin").panel1);
+                                    jdbcfirst.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//
+
+                                    jdbcfirst.frame.setVisible(true);
+                                    System.out.println("Successfully Logged In");
+
+                                }
+                                else {
+                                    JDialog frame = new JDialog();
+                                    JOptionPane.showMessageDialog(frame, "Password Not Matched",
+                                            "SignUp Please ", JOptionPane.ERROR_MESSAGE);
+                                }
+//                                System.out.println(rsUsername.getString("Email"));
+//                                System.out.println(rsUsername.getString("Phone"));
                             }
                             else {
                                 JDialog frame = new JDialog();
-                                JOptionPane.showMessageDialog(frame, "SignUp Please!!",
-                                        "User Not Found SignUp Please", JOptionPane.ERROR_MESSAGE);
+                                JOptionPane.showMessageDialog(frame, "No Admin By this Name \nContact Owner",
+                                        "SignUp Please ", JOptionPane.ERROR_MESSAGE);
                             }
 
 
